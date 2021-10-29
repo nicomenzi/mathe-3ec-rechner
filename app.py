@@ -1,20 +1,27 @@
 from flask import Flask
 
-def has_infos(sites, points):
-    print(sites, points)
+def get_angle_from_2(angle1, angle2):
+    total = angle1 + angle2
+    angle3 = 180 - total
+    return angle3
+
+
+
+
+def has_infos(sites, angles):
+    print(sites, angles)
     sites_amount = len(sites)
-    points_amount = len(points)
-    print(sites_amount, points_amount)
-    if sites_amount == 3 and points_amount == 3:
+    angle_amount = len(angles)
+    print(sites_amount, angle_amount)
+    if sites_amount == 3 and angle_amount == 3:
         print("1")
-    elif sites_amount == 2 and points_amount == 1:
+    elif sites_amount == 2 and angle_amount == 1:
         print("2")
-    elif sites_amount == 1 and points_amount == 2:
+    elif sites_amount == 1 and angle_amount == 2:
         print("3")
-    elif sites_amount == 3 and points_amount == 0:
+        angles.append(get_angle_from_2(angles[0], angles[1]))
+    elif sites_amount == 3 and angle_amount == 0:
         print("4")
-    elif sites_amount == 0 and points_amount == 3:
-        print("5")
     else:
         print("6")
 
@@ -26,15 +33,15 @@ point_b = 35
 point_c = 26
 
 sites = []
-points = []
+angles = []
 
 sites.append(site_a)
 sites.append(site_b)
 sites.append(site_c)
-points.append(point_a)
-points.append(point_b)
-points.append(point_c)
+angles.append(point_a)
+angles.append(point_b)
+angles.append(point_c)
 
-print(sites, points)
+print(sites, angles)
 
-has_infos(sites, points)
+has_infos(sites, angles)
