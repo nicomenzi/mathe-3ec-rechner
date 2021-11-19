@@ -1,12 +1,5 @@
 from flask import Flask
 
-def get_angle_from_2(angle1, angle2):
-    total = angle1 + angle2
-    angle3 = 180 - total
-    return angle3
-
-
-
 
 def has_infos(sites, angles):
     print(sites, angles)
@@ -19,7 +12,6 @@ def has_infos(sites, angles):
         print("2")
     elif sites_amount == 1 and angle_amount == 2:
         print("3")
-        angles.append(get_angle_from_2(angles[0], angles[1]))
     elif sites_amount == 3 and angle_amount == 0:
         print("4")
     else:
@@ -28,20 +20,19 @@ def has_infos(sites, angles):
 site_a = 13
 site_b = 28
 site_c = 34
-point_a = 2
-point_b = 35
-point_c = 26
+angle_a = 2
+angle_b = 35
+angle_c = 26
 
-sites = []
-angles = []
 
-sites.append(site_a)
-sites.append(site_b)
-sites.append(site_c)
-angles.append(point_a)
-angles.append(point_b)
-angles.append(point_c)
+triangle = {"sites": {"a": 0, "b": 0, "c": 0}, "angles": {"a": 0, "b": 0, "c": 0}}
 
-print(sites, angles)
+triangle["sites"]["a"] = site_a
+triangle["sites"]["b"] = site_b
+triangle["sites"]["c"] = site_c
 
-has_infos(sites, angles)
+triangle["angles"]["a"] = angle_a
+triangle["angles"]["b"] = angle_b
+triangle["angles"]["c"] = angle_c
+
+print(triangle)
